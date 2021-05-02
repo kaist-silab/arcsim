@@ -1,1 +1,1 @@
-Makefile.mac
+Makefile.linux
