@@ -29,10 +29,10 @@ fi
 
 cd ../
 echo "Modifying line 118 in src/sparse.hpp..."
-sed -i '118s/.*/    file << "}]" << std::endl;/' src/sparse.hpp
+sed -i '118s|.*|    file << "}]" << std::endl;|' src/sparse.hpp
 echo "Commenting line 805 and 811 in dependencies/include/taucs.h..."
-sed -i '805s/.*//*extern int isnan(double);*//' dependencies/include/taucs.h
-sed -i '811s/.*//*extern int isinf(double);*//' dependencies/include/taucs.h
+sed -i '805s|.*|/*extern int isnan(double);*/|' dependencies/include/taucs.h
+sed -i '811s|.*|/*extern int isinf(double);*/|' dependencies/include/taucs.h
 
 echo "Running make on main folder. This will also take a while."
 make -f "Makefile.linux"
