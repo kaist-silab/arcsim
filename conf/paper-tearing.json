@@ -1,0 +1,57 @@
+// Sheet of paper being torn
+{
+    "timestep": 0.001,
+    "remeshing_frames": 1,
+    "save_frames": 1,
+    "duration": 4,
+    "cloths": [{
+		"reference": "linear",
+        "mesh": "meshes/square_kink.obj",
+        "transform": {"scale": 0.20, "translate": [0,0,0]},
+        "materials": [{
+            // paper
+            "damping": 1e-4,
+            "thickness": 1e-4,
+            "density": 800,
+            "elastic_modulus": 4e9,
+            "poisson_ratio": 0,
+            "bending_factor": 10, 
+            
+            // fracture
+            "toughness" : 9e7,
+            "bend_width": 0e-3,
+            "initiation_factor": 2.0     
+        }],
+        "remeshing": {
+            "refine_angle": 0.15,
+            "refine_compression":  1e-2,
+            "refine_fracture": 0.4,            
+            "size": [0.002, 0.02],
+            "aspect_min": 0.3
+        }
+
+    }],
+    "motions": [[
+        {"time": 0, "transform": {"translate": [0, 0, 0]}},
+        {"time": 1, "transform": {"translate": [0.0, 0, 0], "rotate":[10,0,0,1]} },
+        {"time": 2, "transform": {"translate": [-0.06, 0, 0], "rotate":[10,0,0,1]} } 
+    ],[
+        {"time": 0, "transform": {"translate": [0, 0, 0]}},
+        {"time": 1, "transform": {"translate": [0.0, 0, 0], "rotate":[-10,0,0,1]} },
+        {"time": 2, "transform": {"translate": [0.06, 0, 0], "rotate":[-10,0,0,1]} }       
+    ]],
+    "handles": [
+        {"type": "node", "label": 4, "motion": 0},
+        {"type": "node", "label": 1, "motion": 1},
+        {"type": "node", "label": 8, "motion": 0},
+        {"type": "node", "label": 2, "motion": 1}
+    ],
+    //"obstacles": [],
+    "gravity": [0, -9.8, 0],
+    "disable": ["plasticity"],
+    "wind": {"density": 0},
+
+    "magic": {"collision_stiffness": 1e14, "handle_stiffness": 1e6,
+              "repulsion_thickness": 1e-4, "projection_thickness": 1e-5,
+              "add_jitter":true}
+}

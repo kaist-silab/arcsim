@@ -1,0 +1,49 @@
+// Glass sphere being shattered on the floor
+{
+    "timestep": 5e-5,
+    "remeshing_frames": 1,
+    "save_every": 10,
+    "duration": 1,
+    "passive_time": 0.1, // simulate faster after fracture is complete
+    "cloths": [{
+        "reference": "sphere",
+        "mesh": "meshes/sphere2.obj",
+
+        // instead of free fall, just give the sphere initial velocity
+        "velocity": { "linear": [2,-6,0] },
+
+        "transform": {"translate": [0, 0.3001, 0], "rotate": [0, 1,0,0], "scale":0.3},
+        "materials": [{
+            // glass
+            "damping" : 1e-5,
+            "thickness": 6e-3,
+            "density": 2600,
+            "elastic_modulus": 50e9,
+            "poisson_ratio": 0, // 0.2
+            "bending_mult": 100, 
+            
+            // fracture
+            "toughness" : 2.0e7,
+            "fracture_bending_mult": 0.8
+        }],
+        "remeshing": {
+            "refine_angle": 0.2,
+            "refine_compression": 1e-2,
+            "refine_fracture": 0.3,
+            "size": [0.02, 0.1],
+            "aspect_min": 0.3
+        }
+    }],
+    "motions": [],    
+    "obstacles": [{
+        "mesh": "meshes/square.obj",
+        "proxy": "floor",
+        "transform": {"translate": [-4,0,4], "rotate": [-90, 1,0,0], "scale":8}
+    }],
+    "handles": [],
+    "gravity": [0, -9.8, 0],
+    "disable": ["plasticity","strainlimiting",""],
+
+    "magic": { "collision_stiffness": 1e13, "repulsion_thickness": 1e-4,
+               "projection_thickness": 1e-5, "max_cracks": 400, "enable_localopt": false }
+}
