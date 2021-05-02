@@ -33,4 +33,5 @@ I am not the author of this code, I just made modifications to the code and crea
 
 Special thanks go to @DanielTakeshi for [his instructions](https://github.com/DanielTakeshi/ARCSim-Installation-Instructions)!
 
-
+## 📬 Feedback
+If you find any problems, feel free to raise an `Issue` or to contribute with a `Pull Request`!
