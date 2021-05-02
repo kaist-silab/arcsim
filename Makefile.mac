@@ -4,15 +4,15 @@ CXX := g++
 # # uncomment to disable OpenGL functionality
 # NO_OPENGL := true
 
-CXXFLAGS := -Idependencies/include -I/opt/local/include
+CXXFLAGS := -Idependencies/include -I/opt/local/include -Wno-deprecated-declarations
 ifdef NO_OPENGL
 	CXXFLAGS := $(CXXFLAGS) -DNO_OPENGL
 endif
 CXXFLAGS_DEBUG := -Wall -g -Wno-sign-compare
 CXXFLAGS_RELEASE := -Wall -O3 -Wreturn-type -fopenmp
-LDFLAGS := -Ldependencies/lib -L/opt/local/lib -lpng -lz -ltaucs -llapack -llapacke -lblas -lboost_filesystem -lboost_system -lboost_thread -ljson -lgomp -lalglib
+LDFLAGS := -Ldependencies/lib -L/opt/local/lib -llapacke -lpng -lz -ltaucs -llapack -lblas -lboost_filesystem -lboost_system -ljson -lgomp -lalglib
 ifndef NO_OPENGL
-	LDFLAGS := $(LDFLAGS) -lglut -lGLU -lGL
+	LDFLAGS := $(LDFLAGS) -lglut -framework OpenGL 
 endif
 
 OBJ := \
@@ -58,8 +58,8 @@ OBJ := \
 	sepstrength.o \
 	simulation.o \
 	spline.o \
-	strainlimiting.o \
 	subset.o \
+	strainlimiting.o \
 	taucs.o \
 	tensormax.o \
 	timer.o \

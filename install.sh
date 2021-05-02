@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Installer script for ARCSim 0.3.1 on Ubuntu and other Debian-based distributions
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -35,7 +35,7 @@ sed -i '805s/.*//*extern int isnan(double);*//' dependencies/include/taucs.h
 sed -i '811s/.*//*extern int isinf(double);*//' dependencies/include/taucs.h
 
 echo "Running make on main folder. This will also take a while."
-make
+make -f "Makefile.linux"
 if [ $? -ne 0 ]
 then
 	echo -e "${RED}Make error on main folder occurred. Exiting...${NC}"
