@@ -1,7 +1,10 @@
 # ARCSim 0.3.1 Fixes and Installer Script
 
 ## 🗂 Contents
-This repository is a fork of _ARCSim: Adaptive Refining and Coarsening Simulator_ 0.3.1, which you can also find [here](http://graphics.berkeley.edu/resources/ARCSim/). It contains bug fixes for the installation and an installer script tested on Ubuntu and Pop!\_OS 20.04 which should be compatible with other Linux distributions as well (you may need to change the repository installation from `apt-get` to your distro's one).
+This repository is a fork of _ARCSim: Adaptive Refining and Coarsening Simulator_ 0.3.1, which you can also find [here](http://graphics.berkeley.edu/resources/ARCSim/). 
+It contains bug fixes for the installation and an installer script tested on Ubuntu and Pop!\_OS 20.04 which should be compatible with other Linux distributions as well (you may need to change the repository installation from `apt-get` to your distro's one).
+The script automatically detects the operating system and should also work with MacOSX - although this is untested, so any feedback will be welcome ;)
+
 
 <p align="center">
   <img src="https://github.com/Juju-botu/arcsim/blob/main/flag.gif" width=600 alt="Flag simulation">
