@@ -16,7 +16,7 @@ Open a terminal in the folder you would like to install ARCSim and paste the fol
 
 1. Clone repository:
 ```shell
-git clone https://github.com/Juju-botu/arcsim.git && cd arcsim/
+git clone https://github.com/kaist-silab/arcsim.git && cd arcsim/
 ```
 
 2. Change permissions and install:
